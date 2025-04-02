@@ -1,24 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StatusBar } from "react-native";
+
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "./src/routes/index";
+import AuthProvider from "./src/contexts/auth";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello, World!</Text>
-    </View>
+    <NavigationContainer>
+      <AuthProvider>
+        <StatusBar barStyle="dark-content" backgroundColor="#f5f5f5" />
+        <Routes />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF",
-  },
-  text: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10,
-  },
-});
